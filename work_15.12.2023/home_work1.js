@@ -85,7 +85,67 @@
 // }
 
 // 2-2задание
-//не разобрался
+
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+
+
+const question1 = prompt('Сколько будет 2 + 2?');
+const answer1 = 4;
+
+if( question1 == answer1){
+    alert('Correct answer')
+    correctAnswers ++
+}else {
+    alert( 'ответ не верный')
+    incorrectAnswers ++
+}
+
+const question2 = prompt(' Сколько будет 2 * 2?');
+const answer2 = 4;
+
+if( question2 == answer2){
+    alert('Correct answer')
+    correctAnswers ++
+}else {
+    alert( 'ответ не верный')
+    incorrectAnswers ++
+}
+
+const question3 = prompt(' У Пети было 5 яблок. 3 из них он съел, 1 отдал другу. Сколько яблок у Пети осталось?');
+const answer3 = 1;
+
+if( question3 == answer3){
+    alert('Correct answer')
+    correctAnswers ++
+}else {
+    alert( 'ответ не верный')
+    incorrectAnswers ++
+}
+
+const question4 = prompt('У Маши было 10 конфет. 2 она съела, 1 отдала другу. После мама дала Маше еще 5 конфет. Сколько в итоге конфет осталось у Маши?');
+const answer4 = 12;
+
+if( question4 == answer4){
+    alert('Correct answer')
+    correctAnswers ++
+}else {
+    alert( 'ответ не верный')
+    incorrectAnswers ++
+}
+
+const question5 = prompt('Сколько будет 2 + 2 * 2?');
+const answer5 = 6;
+
+if( question5 == answer5){
+    alert('Correct answer')
+    correctAnswers ++
+}else {
+    alert( 'ответ не верный')
+    incorrectAnswers ++
+}
+
+alert(`“Конец теста! Правильные ответы- ${correctAnswers}; Неправильные ответы - ${incorrectAnswers}.” `)
 
 
 // 2-3 задание в папке конфирм
@@ -122,8 +182,8 @@
 ///2-5 задание
 
 
-let sum = 0;
-for (let i = 0; i <= 100; i++) {
-    sum += i
-}
-alert(`${sum}`)
+// let sum = 0;
+// for (let i = 0; i <= 100; i++) {
+//     sum += i
+// }
+// alert(`${sum}`)
