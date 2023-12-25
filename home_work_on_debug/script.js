@@ -1,6 +1,7 @@
 // task1
 
 let health = prompt('Введите число параметра "здоровье" для персонажа')
+health = Number(health)
 if (health <= 0 || !health) {
 alert('Параметр "здоровье" должен быть больше нуля!')
 } else {
@@ -10,7 +11,8 @@ alert(`Параметр "здоровье" равен ${health}`);
 
 //task2
 
-const temperatureInCelsius = prompt('Введите температуру в градусах Цельсия');
+const temperatureInCelsius = +prompt('Введите температуру в градусах Цельсия');
+
 if (temperatureInCelsius === 0) {
     alert('0 градусов по Цельсию - это температура замерзания воды')
 } else if (temperatureInCelsius > 0) {
