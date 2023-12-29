@@ -140,49 +140,109 @@
 // console.log(result)
 
 //class work
-const goals = [8, 1, 1, 3, 2, -1, 5];
+// const goals = [8, 1, 1, 3, 2, -1, 5];
 
 
-let maxNumberOfGoals = goals[0];
-let maxNumberOfGoalsIndex = 0;
+// let maxNumberOfGoals = goals[0];
+// let maxNumberOfGoalsIndex = 0;
 
-let minNumberGoals = goals[0];
-goals.forEach((golNumber, i) => {
-    if (golNumber > maxNumberOfGoals) {
-        maxNumberOfGoals = golNumber;
-        maxNumberOfGoalsIndex = i;
-    } 
+// let minNumberGoals = goals[0];
+// goals.forEach((golNumber, i) => {
+//     if (golNumber > maxNumberOfGoals) {
+//         maxNumberOfGoals = golNumber;
+//         maxNumberOfGoalsIndex = i;
+//     } 
 
-    if ( golNumber < minNumberGoals && golNumber >= 0){
-        minNumberGoals = golNumber;
-    }
-})
+//     if ( golNumber < minNumberGoals && golNumber >= 0){
+//         minNumberGoals = golNumber;
+//     }
+// })
 
-console.log(`Самый результативный матч был под номером ${maxNumberOfGoalsIndex + 1}, В нем было забито ${maxNumberOfGoals} гол(ов) `);
-
-
-const matchVithMinNumberOfGoals = goals.map((golNumber, i) =>  golNumber === minNumberGoals ? i + 1 : -1 ).filter(  el => el > 0).join(', ');
-
-console.log('min gol', matchVithMinNumberOfGoals)
-console.log(`Самые нерезультативные матчи были под номерами ${matchVithMinNumberOfGoals}. В каждом из них было забито по ${minNumberGoals} мячу(а).`)
+// console.log(`Самый результативный матч был под номером ${maxNumberOfGoalsIndex + 1}, В нем было забито ${maxNumberOfGoals} гол(ов) `);
 
 
-let sumGoals = goals.reduce((sum, i) => sum + i, 0);
-console.log(`Общее количество голов за сезон равно ${sumGoals}`);
+// const matchVithMinNumberOfGoals = goals.map((golNumber, i) =>  golNumber === minNumberGoals ? i + 1 : -1 ).filter(  el => el > 0).join(', ');
+
+// console.log('min gol', matchVithMinNumberOfGoals)
+// console.log(`Самые нерезультативные матчи были под номерами ${matchVithMinNumberOfGoals}. В каждом из них было забито по ${minNumberGoals} мячу(а).`)
 
 
-for(let i = 0; i < goals.length; i++) {
-   if (goals[i] <= 0) {
-    console.log(`Были автоматические поражения: да`)
-    } else {
-    console.log(`Были автоматические поражения: нет`)
-    }
-}
+// let sumGoals = goals.reduce((sum, i) => i >= 0 ? sum + i : sum, 0);
+// console.log(`Общее количество голов за сезон равно ${sumGoals}`);
+
+
+// for(let i = 0; i < goals.length; i++) {
+//    if (goals[i] <= 0) {
+//     console.log(`Были автоматические поражения: да`)
+//     } else {
+//     console.log(`Были автоматические поражения: нет`)
+//     }
+// }
+
+// const auto = goals.some(i => i < 0)
+// if (auto) {
+//     console.log(`Были автоматические поражения: да`)
+// } else {
+//     console.log(`Были автоматические поражения: нет`)
+//     }
  
 
-const numberOfGoals = Math.round(sumGoals / goals.length);
-console.log(`Среднее количество голов за матч равно ${numberOfGoals}`)
+// const numberOfGoals = sumGoals / goals.length;
+// console.log(`Среднее количество голов за матч равно ${numberOfGoals}`)
 
- goals.sort( (a, b) => a - b)
+// let str =  goals.sort( (a, b) => a - b);
 
- console.log(goals)
+//  console.log(str.join(', '));
+
+//2 задача дополнительная 
+const signs = [">", "<", "=", "+", "-", "*", "/"];
+
+function isNumber (num) {
+   return !isNaN (num) && !isNaN (parseFloat(num))
+}
+
+
+function getMathResult (expression) {
+let result = [...expression] 
+
+    if (expression.length > 3 ) {
+        result = result.filter( (i) => isNumber(i) || signs.includes(i))
+    }
+
+    const first = Number(result[0]);
+    const second = Number(result[result.length -1]);
+    const mathSigns = result[1];
+
+    if ( expression.length < 3 || result.length < 3  || !signs.includes(mathSigns) || !isNumber(first) || !isNumber(second)) {
+        return console.log('ошибка')
+    }
+
+    switch (mathSigns){
+        case '>':
+            return first > second;
+        case '<':
+            return  first < second;
+        case '=': 
+            return first === second;
+        case '+': 
+            return first + second;
+        case '-': 
+            return first - second;
+        case '*': 
+            return first * second;
+        case '/': 
+            return first / second;   
+        default: 
+        return console.log('ошибка')
+    }
+}
+
+console.log('1 console', getMathResult(['100', 'hello', 'javascript', , 'help200', '+', 4]))
+console.log('2 console',getMathResult(['200', '+', 300])); // 500
+console.log('3 console',getMathResult(['20', '-', '5'])); // 15
+console.log('4 console',getMathResult([2, '-', 2])); // 0
+console.log('5 console',getMathResult(['5', '>', '10'])); // false
+console.log('6 console',getMathResult(['5', '<', '10'])); // true
+console.log('7 console',getMathResult(['1', '=', 1])); // true
+console.log('8 console', getMathResult(['1', '**', 1])); // 'Ошибка'
+console.log('9 console',getMathResult([100, '/', 100])); // 1
