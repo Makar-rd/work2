@@ -195,54 +195,101 @@
 //  console.log(str.join(', '));
 
 //2 задача дополнительная 
-const signs = [">", "<", "=", "+", "-", "*", "/"];
+// const signs = [">", "<", "=", "+", "-", "*", "/"];
 
-function isNumber (num) {
-   return !isNaN (num) && !isNaN (parseFloat(num))
+// function isNumber (num) {
+//    return !isNaN (num) && !isNaN (parseFloat(num))
+// }
+
+
+// function getMathResult (expression) {
+// let result = [...expression] 
+
+//     if (expression.length > 3 ) {
+//         result = result.filter( (i) => isNumber(i) || signs.includes(i))
+//     }
+
+//     const first = Number(result[0]);
+//     const second = Number(result[result.length -1]);
+//     const mathSigns = result[1];
+
+//     if ( expression.length < 3 || result.length < 3  || !signs.includes(mathSigns) || !isNumber(first) || !isNumber(second)) {
+//         return 'ошибка'
+//     }
+
+//     switch (mathSigns){
+//         case '>':
+//             return first > second;
+//         case '<':
+//             return  first < second;
+//         case '=': 
+//             return first === second;
+//         case '+': 
+//             return first + second;
+//         case '-': 
+//             return first - second;
+//         case '*': 
+//             return first * second;
+//         case '/': 
+//             return first / second;   
+//         default: 
+//         return 'ошибка'
+//     }
+// }
+
+// console.log('1 console', getMathResult(['100', 'hello', 'javascript', , 'help200', '+', 4]))
+// console.log('2 console',getMathResult(['200', '+', 300])); // 500
+// console.log('3 console',getMathResult(['20', '-', '5'])); // 15
+// console.log('4 console',getMathResult([2, '-', 2])); // 0
+// console.log('5 console',getMathResult(['5', '>', '10'])); // false
+// console.log('6 console',getMathResult(['5', '<', '10'])); // true
+// console.log('7 console',getMathResult(['1', '=', 1])); // true
+// console.log('8 console', getMathResult(['1', '**', 1])); // 'Ошибка'
+// console.log('9 console',getMathResult([100, '/', 100])); // 1
+
+
+// 3 доп задание
+
+const matrix = [
+    [ 1, 2, 3 ],
+    [ 4, 5, 6 ],
+    [ 7, 8, 9 ],
+    ];
+
+// const arr1 = matrix[0]
+// const arr2 = matrix[1]
+// const arr3 = matrix[2]
+
+// const arrays = arr1.concat(arr2.concat(arr3.concat()));
+// console.log(arrays)
+const arrays = matrix.reduce((acc, el) => [...acc, ...el])
+console.log(arrays)
+
+
+ // 4 доп задание
+
+// let arr = [];
+//  function matrixArray(){
+    
+//      for (let i = 0; i <3; i++) {
+        
+//         for (let j = 0; j < 1; j++) {
+//             arr.push([1, 2, 3, 4, 5]);
+//         }
+//      }
+//      return arr;
+//  }
+
+//  console.log(matrixArray())
+
+const matrixArray = [];
+for (let i = 0; i <3; i++){
+    const row = [];
+    for (let j = 0; j < 5; j++){
+        row.push(j + 1)
+    }
+
+    matrixArray.push(row);
 }
 
-
-function getMathResult (expression) {
-let result = [...expression] 
-
-    if (expression.length > 3 ) {
-        result = result.filter( (i) => isNumber(i) || signs.includes(i))
-    }
-
-    const first = Number(result[0]);
-    const second = Number(result[result.length -1]);
-    const mathSigns = result[1];
-
-    if ( expression.length < 3 || result.length < 3  || !signs.includes(mathSigns) || !isNumber(first) || !isNumber(second)) {
-        return console.log('ошибка')
-    }
-
-    switch (mathSigns){
-        case '>':
-            return first > second;
-        case '<':
-            return  first < second;
-        case '=': 
-            return first === second;
-        case '+': 
-            return first + second;
-        case '-': 
-            return first - second;
-        case '*': 
-            return first * second;
-        case '/': 
-            return first / second;   
-        default: 
-        return console.log('ошибка')
-    }
-}
-
-console.log('1 console', getMathResult(['100', 'hello', 'javascript', , 'help200', '+', 4]))
-console.log('2 console',getMathResult(['200', '+', 300])); // 500
-console.log('3 console',getMathResult(['20', '-', '5'])); // 15
-console.log('4 console',getMathResult([2, '-', 2])); // 0
-console.log('5 console',getMathResult(['5', '>', '10'])); // false
-console.log('6 console',getMathResult(['5', '<', '10'])); // true
-console.log('7 console',getMathResult(['1', '=', 1])); // true
-console.log('8 console', getMathResult(['1', '**', 1])); // 'Ошибка'
-console.log('9 console',getMathResult([100, '/', 100])); // 1
+console.log(matrixArray)
