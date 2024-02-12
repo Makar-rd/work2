@@ -70,7 +70,7 @@
 
 // 3 task
 
-function handleObject (obj, key, action){
+// function handleObject (obj, key, action){
     // if(action === 'get'){
     //   return key in obj // Возвращаем значение ключа
     // }
@@ -84,30 +84,30 @@ function handleObject (obj, key, action){
     //     delete obj[key];  // Удаляем свойство key из объекта
     //     return obj
     // }
-    switch (action) {
-        case 'get':
-            return key in obj;
-        case 'add':
-            obj[key] = '';
-            return obj;
-        case 'delete':
-            delete obj[key];
-            return obj;
-            default: 
-            return obj;
-    }
+//     switch (action) {
+//         case 'get':
+//             return key in obj;
+//         case 'add':
+//             obj[key] = '';
+//             return obj;
+//         case 'delete':
+//             delete obj[key];
+//             return obj;
+//             default: 
+//             return obj;
+//     }
 
-}
+// }
 
-const student = {
-    name: 'Maxim',
-    programmingLanguage: 'JavaScript',
-    }
+// const student = {
+//     name: 'Maxim',
+//     programmingLanguage: 'JavaScript',
+//     }
 
-    const result = handleObject(student, 'programmingLanguage',
-    'delete');
+//     const result = handleObject(student, 'programmingLanguage',
+//     'delete');
 
-    console.log('result', result)
+//     console.log('result', result)
 
     // task 4
 
@@ -239,41 +239,117 @@ const student = {
 
 ///4 dop task
 
-const todaysWinner = {
-    prize: '10 000$',
-    }
-    const winnerApplicants = {
-    '001': {
-    name: 'Максим',
-    age: 25,
-    },
-    '201': {
-    name: 'Светлана',
-    age: 20,
-    },
-    '304': {
-    name: 'Екатерина',
-    age: 35,
-    },
-}
+// const todaysWinner = {
+//     prize: '10 000$',
+//     }
+//     const winnerApplicants = {
+//     '001': {
+//     name: 'Максим',
+//     age: 25,
+//     },
+//     '201': {
+//     name: 'Светлана',
+//     age: 20,
+//     },
+//     '304': {
+//     name: 'Екатерина',
+//     age: 35,
+//     },
+// }
 
-function getRandomNumberInRange(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-    }
+// function getRandomNumberInRange(min, max) {
+//     return Math.floor(Math.random() * (max - min)) + min;
+//     }
 
-function getWinner(applicants, winnerObject){
-    let key = Object.keys(applicants)
+// function getWinner(applicants, winnerObject){
+//     let key = Object.keys(applicants)
 
-    const random = getRandomNumberInRange(0, 1);
-    const randomKey = key[random];
-    const winner = applicants[randomKey];
-    const result = {...winnerObject, winner}
-    return result
-}
+//     const random = getRandomNumberInRange(0, 1);
+//     const randomKey = key[random];
+//     const winner = applicants[randomKey];
+//     const result = {...winnerObject, winner}
+//     return result
+// }
 
 
 
     
-    const resultWinner = getWinner(winnerApplicants, todaysWinner);
-    console.log('resultWinner:', resultWinner);
+//     const resultWinner = getWinner(winnerApplicants, todaysWinner);
+//     console.log('resultWinner:', resultWinner);
     // { prize: '10 000$', name: 'Максим', age: 25 
+////////////////////////////////////////////////////////////////////////////////////
+    // Необходимо обработать массив таким образом, чтобы распределить
+//людей по группам городов
+
+// Данные на вход
+// const people = [
+//   {
+//     name: 'Alex',
+//     city: 'Moscow',
+//   },
+//   {
+//     name: 'Ivan',
+//     city: 'Moscow',
+//   },
+//   {
+//     name: 'Joe',
+//     city: 'New York'
+//   },
+//   {
+//     name: 'Johan',
+//     city: 'Berlin'
+//   },
+// ]
+
+// const groupByCity = (array) => {
+//     const result = {};
+//     for(const item of array) {
+//         const{city, name} = item;
+//         if (!result[city]){
+//             result[city] = name;
+//         }else if (Array.isArray(result[city])) {
+//             result[city].push(name);
+//         } else {
+//             result[city] = [result[city], name];
+//         }
+//     }
+//     return result;
+// }
+// console.log(groupByCity(people))
+
+// Данные на выход
+
+// {
+//   'Moscow': [ 'Alex', 'Ivan' ],
+//   'New York': 'Joe',
+//   'Berlin': 'Johan'
+// }
+/////////////////////////////////////////////////////
+// const str = 'one.two.three.four.five';
+// const arr = str.split('.')
+// const str2 = arr.reduceRight((acc, el) => {
+//     // console.log('acc', acc)
+//     // console.log('el', el)
+//     return {[el]: acc}
+// }, {})
+
+// console.log(str2)
+
+// RESULT
+/*
+{
+  one: {
+    two: {
+      three: {
+        four: {
+          five: }
+        }
+      }
+    }
+  }
+}
+*/
+
+
+
+
